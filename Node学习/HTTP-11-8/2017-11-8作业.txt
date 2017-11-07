@@ -1,0 +1,4 @@
+http
+1,使用crul -v 获取服务器资源 createServer() listen(端口,主机名,backlog,backcall)  
+2,http继存net.
+3,
