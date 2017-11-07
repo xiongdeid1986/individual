@@ -1,0 +1,23 @@
+1.require("net"); 双工流 allowHalfOpen 是否允许半开连接
+创建一个双工流,监听端口(端口,回调),使用XFTP或tenet连接.
+创建的双工流可以使用可读写流的函数. pipe等.resume() , pause()暂停 等.....
+util 解析地址.util.inspect(socket.address()); remoteAddress 客户端IP
+socket超时 .setTimeout();监听超时事件 socket.on("timeout",fn)
+写一个tcpClient
+
+-------------------====UDP====-----------------------
+dgram.createSocket("udp4");
+socket.bind(41234,"localhost");监听 message事件,接收数字
+UDP的发送 send(text,0,6,41234,"localhost") //开始,结束字节数,端口,地址.
+
+
+案例,
+1.创建一个服务器,同时客户端可以连接服务器
+2.客户端可以发言,然后广播给大家
+3.客户端连接和退出后都要通知大家 
+4.显示当前在线人数
+
+一:用net创建服务器,并监听6668端口,监听事件. 设计编码,写入欢迎词.
+二:如果有昵称,则可以发言,如果未有昵称,则设置昵称.缓存所有人的socket对象,便于用户登陆后可以给任何人发送消息.
+三:getConnections取得在线人数.有人离开后,广播所有人.
+四:需要捕获错误和关闭,否则会报错.
